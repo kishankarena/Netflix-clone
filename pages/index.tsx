@@ -9,6 +9,7 @@ import useAuth from "../hooks/useAuth";
 import { useRecoilValue } from "recoil";
 import { modalState } from "../atoms/modalAtom";
 import Modal from "../components/Modal";
+import Plans from "../components/Plans";
 
 interface Props {
   netflixOriginals: Movie[];
@@ -32,7 +33,8 @@ const Home = ({
 }: Props) => {
   const { loading } = useAuth();
   const showModal = useRecoilValue(modalState)
-  if (loading) return null; 
+
+
   return (
     <div className="relative h-screen bg-gradient-to-b  lg:h-[140vh]">
       <Head>
