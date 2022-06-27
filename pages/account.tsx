@@ -29,7 +29,7 @@ const account = () => {
         </Link>
       </header>
       <main
-        className="pt-24 mx-auto max-w-6xl pt-24 px-5 pb-12 transition-all
+        className="pt-24 mx-auto max-w-6xl px-5 pb-12 transition-all
        md:px-10 "
       >
         <div

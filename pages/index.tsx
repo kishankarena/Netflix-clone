@@ -7,9 +7,9 @@ import { Movie } from "../type";
 import Row from "../components/Row";
 import useAuth from "../hooks/useAuth";
 import { useRecoilValue } from "recoil";
-import { modalState } from "../atoms/modalAtom";
+import { modalState, movieState } from "../atoms/modalAtom";
 import Modal from "../components/Modal";
-import Plans from "../components/Plans";
+import useList from "../hooks/useList";
 
 interface Props {
   netflixOriginals: Movie[];
@@ -31,8 +31,10 @@ const Home = ({
   topRated,
   trendingNow,
 }: Props) => {
-  const { loading } = useAuth();
+  const { user } = useAuth();
   const showModal = useRecoilValue(modalState)
+  const movie = useRecoilValue(movieState)
+  const list = useList(user?.uid)
 
 
   return (
@@ -49,6 +51,7 @@ const Home = ({
           <Row title="Top Rated" movies={topRated} />
           <Row title="Action Thrillers" movies={actionMovies} />
           {/* My List */}
+          {list.length>0 && <Row title="My List" movies={list}/>}
           <Row title="Comedies" movies={comedyMovies} />
           <Row title="Scary Movies" movies={horrorMovies} />
           <Row title="Romance Movies" movies={romanceMovies} />
