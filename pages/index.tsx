@@ -10,6 +10,7 @@ import { useRecoilValue } from "recoil";
 import { modalState, movieState } from "../atoms/modalAtom";
 import Modal from "../components/Modal";
 import useList from "../hooks/useList";
+import { GetServerSideProps } from "next";
 
 interface Props {
   netflixOriginals: Movie[];
@@ -65,7 +66,7 @@ const Home = ({
 
 export default Home;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps:GetServerSideProps = async () => {
   const [
     netflixOriginals,
     trendingNow,
